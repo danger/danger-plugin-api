@@ -1,34 +1,15 @@
-# Danger::Plugin::Api
+# Danger Plugin API contract
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/danger/plugin/api`. To experiment with that code, run `bin/console` for an interactive prompt.
+This repo contains a single gem, it represents the current version of the API, and what the minimum version of Danger supports it.
 
-TODO: Delete this and the text above, and describe your gem
+Check the current version by clicking: [lib/danger/plugin/api/version.rb](lib/danger/plugin/api/version.rb).
 
-## Installation
+This frees plugin authors from being tied to a project which is aggressive on [semantic versioning](http://semver.org). As long as the plugin API stays the same
+then as an author you can be safe in the knowledge that a version bump on Danger has not changed the external API. 
 
-Add this line to your application's Gemfile:
+## What do I define as a public API?
 
-```ruby
-gem 'danger-plugin-api'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install danger-plugin-api
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Well that one is a bit tricky, for plugins that is anything that can be found on the [Danger.Systems#reference](http://danger.systems/reference.html). Additions to the exposed DSL probably won't get bumps to this gem's versions, but breaking changes e.g. removals or renames definitely will.  
 
 ## Contributing
 
